@@ -20,7 +20,7 @@ int main()
         {
             printf("\nList of operations:\v\rOperation -> Symbol/Phrase\v\rAddition -> +\v\rSubtration -> -\v\rMultiplication -> *\v\rDivision -> /\v\r"
                    "Sine/ArcSine -> sin / arcsin\v\rCosine/ArcCosine -> cos / arccos\v\rTangent/ArcTangent -> tan / arctan\v\r"
-                   "Exponential -> exp\v\rPower -> pow");
+                   "Exponential -> exp\v\rPower -> pow\v\rSquare Root -> sqrt");
             printf("\n\n");
             printf("Type q to quit\n");
             scanf("%s", temp);
@@ -141,8 +141,16 @@ int main()
             printf("Please type in operand 2\n");
             scanf("%lf", &y);
             res = pow(x, y);
-            printf("%lf^    %lf = %f\n", x, y, res);
+            printf("%lf^(%lf) = %f\n", x, y, res);
         }
+        else if (!strcmp(operand, "sqrt"))
+        {
+            printf("Please type in an operand\n");
+            scanf("%lf", &x);
+            res = sqrt(x);
+            printf("√(%lf) = %f\n", x, res);
+        }
+        printf("\n\n");
     }
     return 0;
 }

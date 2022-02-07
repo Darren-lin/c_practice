@@ -150,7 +150,10 @@ int main()
             res = sqrt(x);
             printf("√(%lf) = %f\n", x, res);
         }
-        printf("\n\n");
+        else{
+            printf("not an op");
+        }
+        printf("\n\n"); 
     }
     return 0;
 }

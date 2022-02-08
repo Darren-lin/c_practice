@@ -1,1 +1,1 @@
-# Messing-around-with-C
+# A record of my progression and understanding of the C Language

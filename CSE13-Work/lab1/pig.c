@@ -2,23 +2,37 @@
 #include <stdio.h>
 #include <limits.h>
 
+#define SEED 2022;
+
 int main()
 {
 
     // prompting user for # of players
-    int input = 0;
-    scanf("%d", &input);
-    if (input > 10 || input < 2)
+    int numplayers = 0;
+    printf("How many players? ");
+    scanf("%d", &numplayers);
+    if (numplayers > 10 || numplayers < 2)
     {
         fprintf(stderr, "Invalid number of players. Using 2 instead.\n");
     }
 
     // declaring and zeroing out scores array
-    int scores[input];
-    for (int i = 0; i < input; i++)
+    int scores[numplayers];
+    for (int i = 0; i < numplayers; i++)
     {
         scores[i] = 0;
     }
+
+    // prompting user for seed
+    unsigned long int seed;
+    printf("Random seed: ");
+    scanf("%lu", &seed);
+    if(seed <= 0 || seed >= ULONG_MAX){
+        fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
+        seed = SEED;
+    }
+    srandom(seed);
+    
 
     return 0;
 }

@@ -33,7 +33,9 @@ int main()
         seed = SEED;
     }
     srandom(seed);
-    
+    for(int i = 0; i < 20; i++){
+        printf("random num: %lu\n", random() % 7 + 1);
+    }
 
     return 0;
 }

@@ -11,7 +11,7 @@ int main()
     int numplayers = 0;
     printf("How many players? ");
     scanf("%d", &numplayers);
-    if ((numplayers > 10 || numplayers < 2) && numplayers <= INT_MAX)
+    if (numplayers > 10 || numplayers < 2)
     {
         fprintf(stderr, "Invalid number of players. Using 2 instead.\n");
         numplayers = 2;

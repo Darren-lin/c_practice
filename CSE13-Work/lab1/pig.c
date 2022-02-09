@@ -6,7 +6,6 @@
 
 int main()
 {
-
     // prompting user for # of players
     int numplayers = 0;
     printf("How many players? ");

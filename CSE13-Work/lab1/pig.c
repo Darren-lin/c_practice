@@ -1,8 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
+#include <string.h>
 
 #define SEED 2022;
+
+void result(char* action, int roll);
 
 int main()
 {
@@ -32,10 +35,17 @@ int main()
         seed = SEED;
     }
     srandom(seed);
-    for (int i = 0; i < 20; i++)
-    {
-        printf("random num: %lu\n", random() % 7 + 1);
-    }
 
+    // attempting to get action
+    char* action = "";
+    for(int i = 0; i < 10; i++){
+        result(action, random() % 7 + 1);
+        printf("%s\n", action);
+    }
     return 0;
+}
+
+void result(char* action, int roll){
+    char *arr [7]= {"side", "side", "razorback", "trotter", "snouter", "jowler", "jowler"};
+    action = arr[roll];
 }

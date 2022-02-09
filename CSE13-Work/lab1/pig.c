@@ -27,13 +27,19 @@ int main()
     // prompting user for seed
     unsigned long int seed;
     printf("Random seed: ");
-    scanf("%lu", &seed);
-    if(seed <= 0 || seed >= ULONG_MAX){
+    if (scanf("%lu", &seed) != 1)
+    {
+        fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
+        seed = SEED;
+    }
+    else if (seed <= 0 || seed >= ULONG_MAX)
+    {
         fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
         seed = SEED;
     }
     srandom(seed);
-    for(int i = 0; i < 20; i++){
+    for (int i = 0; i < 20; i++)
+    {
         printf("random num: %lu\n", random() % 7 + 1);
     }
 

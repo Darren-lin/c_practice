@@ -46,6 +46,6 @@ int main()
 }
 
 void result(char* action, int roll){
-    char *arr [7]= {"side", "side", "razorback", "trotter", "snouter", "jowler", "jowler"};
+    char* arr [7]= {"side", "side", "razorback", "trotter", "snouter", "jowler", "jowler"};
     action = arr[roll];
 }

@@ -32,11 +32,6 @@ int main()
         fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
         seed = SEED;
     }
-    else if (seed <= 0 || seed >= ULONG_MAX)
-    {
-        fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
-        seed = SEED;
-    }
     srandom(seed);
     for (int i = 0; i < 20; i++)
     {

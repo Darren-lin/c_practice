@@ -5,7 +5,15 @@
 
 #define SEED 2022;
 
-void result(char* action, int roll);
+typedef enum
+{
+    SIDE,
+    RAZORBACK,
+    TROTTER,
+    SNOUTER,
+    JOWLER
+} Position;
+const Position[7] = {SIDE, SIDE, RAZORBACK, TROTTER, SNOUTER, JOWLER, JOWLER};
 
 int main()
 {
@@ -36,16 +44,11 @@ int main()
     }
     srandom(seed);
 
+    enum action;
     // attempting to get action
-    char* action = "";
-    for(int i = 0; i < 10; i++){
-        result(action, random() % 7 + 1);
-        printf("%s\n", action);
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d", Position[random() 7 + 1]);
     }
     return 0;
-}
-
-void result(char* action, int roll){
-    char* arr [7]= {"side", "side", "razorback", "trotter", "snouter", "jowler", "jowler"};
-    action = arr[roll];
 }

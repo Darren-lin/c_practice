@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
+#include "names.h"
 
 #define SEED 2022;
 
@@ -26,6 +27,11 @@ int main()
         fprintf(stderr, "Invalid number of players. Using 2 instead.\n");
         numplayers = 2;
     }
+    const char *players[numplayers];
+    for (int i = 0; i < numplayers; i++)
+    {
+        players[i] = names[i];
+    }
 
     // declaring and zeroing out scores array
     int scores[numplayers];
@@ -43,6 +49,7 @@ int main()
         seed = SEED;
     }
     srandom(seed);
+
     // attempting to get action
     for (int i = 0; i < 10; i++)
     {

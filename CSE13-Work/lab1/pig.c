@@ -13,7 +13,7 @@ typedef enum
     SNOUTER,
     JOWLER
 } Position;
-const Position[7] = {SIDE, SIDE, RAZORBACK, TROTTER, SNOUTER, JOWLER, JOWLER};
+const Position pig[7] = {SIDE, SIDE, RAZORBACK, TROTTER, SNOUTER, JOWLER, JOWLER};
 
 int main()
 {
@@ -43,12 +43,10 @@ int main()
         seed = SEED;
     }
     srandom(seed);
-
-    enum action;
     // attempting to get action
     for (int i = 0; i < 10; i++)
     {
-        printf("%d", Position[random() 7 + 1]);
+        printf("%d\n", pig[random() % 7]);
     }
     return 0;
 }

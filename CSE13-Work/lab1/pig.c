@@ -40,44 +40,39 @@ int main()
     // prompting user for seed
     unsigned long int seed;
     printf("Random seed: ");
-    if (scanf("%lu", &seed) != 1)
+    if (scanf("%lu", &seed) != 1 && seed < 0)
     {
         fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
         seed = SEED;
     }
     srandom(seed);
 
-    Position action = 6;
+    Position action;
     int player = 0;
     bool play = true;
+
+    // play loop
     while (play)
     {
-        if (player == 8)
+        printf("%s rolls the pig... ", names[player]);
+        if (player == numplayers)
         {
             player = 0;
         }
         do
         {
             action = pig[random() % 7];
-        } while ((action != SIDE) && scores[player] < 100);
+            scores[player] += points[action];
+            printf("%s ", msg[action]);
+        } while (action != SIDE && scores[player] < 100);
+        printf("\n");
+        if (scores[player] >= 100)
         {
-            if (action == RAZORBACK)
-            {
-                scores[player] += 10;
-            }
-            else if (action == TROTTER)
-            {
-                scores[player] += 10;
-            }
-            else if (action == SNOUTER)
-            {
-                scores[player] += 15;
-            }
-            else if (action == JOWLER)
-            {
-                scores[player] += 5;
-            }
+            play = false;
+            break;
         }
         player += 1;
-        return 0;
     }
+    printf("%s wins with %d points!", names[player], scores[player]);
+    return 0;
+}

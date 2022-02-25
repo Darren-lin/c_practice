@@ -16,8 +16,8 @@ typedef enum
     JOWLER
 } Position;
 const Position pig[7] = {SIDE, SIDE, RAZORBACK, TROTTER, SNOUTER, JOWLER, JOWLER};
-const int points[7] = {0, 0, 10, 10, 15, 5};
-const char *msg[7] = {"pig lands on side", "pig lands on side", "pig lands on back", "pig lands upright", "pig lands on ear", "pig lands on ear"};
+const int points[7] = {0, 0, 10, 10, 15, 5, 5};
+const char *msg[7] = {"pig lands on side", "pig lands on side", "pig lands on back", "pig lands upright", "pig lands snout", "pig lands on ear", "pig lands on ear"};
 int main()
 {
     // prompting user for # of players
@@ -50,28 +50,31 @@ int main()
     Position action;
     int player = 0;
     bool play = true;
-
+    int temp;
     // play loop
     while (play)
     {
-        printf("%s rolls the pig... ", names[player]);
         if (player == numplayers)
         {
             player = 0;
         }
+        printf("%s rolls the pig... ", names[player]);
         do
         {
-            action = pig[random() % 7];
-            scores[player] += points[action];
-            printf("%s ", msg[action]);
+            temp = random() % 7;
+            action = pig[temp];
+            scores[player] += points[temp];
+            printf("%s ", msg[temp]);
         } while (action != SIDE && scores[player] < 100);
         printf("\n");
         if (scores[player] >= 100)
         {
             play = false;
-            break;
         }
-        player += 1;
+        else
+        {
+            player += 1;
+        }
     }
     printf("%s wins with %d points!", names[player], scores[player]);
     return 0;

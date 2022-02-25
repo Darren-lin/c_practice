@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <limits.h>
 #include <string.h>
 #include <stdbool.h>
 #include "names.h"
@@ -15,9 +14,11 @@ typedef enum
     SNOUTER,
     JOWLER
 } Position;
+
 const Position pig[7] = {SIDE, SIDE, RAZORBACK, TROTTER, SNOUTER, JOWLER, JOWLER};
 const int points[7] = {0, 0, 10, 10, 15, 5, 5};
 const char *msg[7] = {"pig lands on side", "pig lands on side", "pig lands on back", "pig lands upright", "pig lands snout", "pig lands on ear", "pig lands on ear"};
+
 int main()
 {
     // prompting user for # of players
@@ -38,9 +39,9 @@ int main()
     }
 
     // prompting user for seed
-    unsigned long int seed;
+    long int seed;
     printf("Random seed: ");
-    if (scanf("%lu", &seed) != 1 && seed < 0)
+    if (scanf("%ld", &seed) == EOF || seed < 0)
     {
         fprintf(stderr, "Invalid random seed. Using 2022 instead.\n");
         seed = SEED;
